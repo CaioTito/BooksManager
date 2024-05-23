@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BooksManager.API.Controllers
 {
@@ -59,6 +60,22 @@ namespace BooksManager.API.Controllers
                 return NotFound();
 
             return Ok(book);
+        }
+
+        /// <summary>
+        /// Delete a book
+        /// </summary>
+        /// <param name="id">BookId</param>
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [Authorize(Roles = "Administrator")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeleteBookCommand(id);
+
+            await mediator.Send(command);
+
+            return NoContent();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using BooksManager.Application.Commands.Lendings;
+﻿using BooksManager.Application.Commands.Books;
+using BooksManager.Application.Commands.Lendings;
 using BooksManager.Application.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -22,6 +23,22 @@ namespace BooksManager.API.Controllers
         {
             var id = await mediator.Send(command);
             return Ok(id);
+        }
+
+        /// <summary>
+        /// Delete a lending
+        /// </summary>
+        /// <param name="id">LendingId</param>
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [Authorize(Roles = "Administrator")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeleteLendingCommand(id);
+
+            await mediator.Send(command);
+
+            return NoContent();
         }
     }
 }

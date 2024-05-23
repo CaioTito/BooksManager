@@ -6,5 +6,6 @@ namespace BooksManager.Core.Interfaces.Repositories
     {
         Task CreateAsync(Lending lending);
         List<Lending> CheckLendingReturnDate();
+        Task<Lending> GetByIdAsync(Guid id);
     }
 }

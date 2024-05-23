@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using BooksManager.Application.Queries.Users;
 using BooksManager.Application.ViewModels;
+using BooksManager.Application.Commands.Lendings;
 
 namespace BooksManager.API.Controllers
 {
@@ -56,6 +57,22 @@ namespace BooksManager.API.Controllers
         public async Task<IActionResult> Login([FromBody] LoginUserCommand login)
         {
             return Ok(new { token = await mediator.Send(login) });
+        }
+
+        /// <summary>
+        /// Delete a user
+        /// </summary>
+        /// <param name="id">UserId</param>
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [Authorize(Roles = "Administrator")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var command = new DeleteUserCommand(id);
+
+            await mediator.Send(command);
+
+            return NoContent();
         }
     }
 }

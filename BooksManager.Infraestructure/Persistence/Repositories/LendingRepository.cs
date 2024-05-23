@@ -20,5 +20,11 @@ namespace BooksManager.Infraestructure.Persistence.Repositories
 
             return products;
         }
+
+        public async Task<Lending> GetByIdAsync(Guid id)
+        {
+            return await context.Lendings
+                .FirstAsync(b => b.Id == id && b.DeletedAt == null);
+        }
     }
 }

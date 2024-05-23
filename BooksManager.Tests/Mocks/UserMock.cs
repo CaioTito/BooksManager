@@ -34,5 +34,10 @@ namespace BooksManager.Tests.Mocks
             new Faker<GetUserByIdQuery>()
                 .CustomInstantiator(f => (
                     new GetUserByIdQuery(f.Random.Guid())));
+
+        public static Faker<DeleteUserCommand> DeleteUserCommandFaker =>
+            new Faker<DeleteUserCommand>()
+                .CustomInstantiator(f => (
+                    new DeleteUserCommand(f.Random.Guid())));
     }
 }
