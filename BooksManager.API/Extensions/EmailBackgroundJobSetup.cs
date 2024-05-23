@@ -14,9 +14,12 @@ namespace BooksManager.API.Extensions
                 .AddTrigger(trigger =>
                     trigger
                         .ForJob(emailJobKey)
-                        .WithSimpleSchedule(schedule =>
-                            schedule.WithIntervalInMinutes(5).RepeatForever()));
-                        //.WithCronSchedule("0 0 8 ? * * *"));
+                        .WithCronSchedule("0 0 8 ? * * *"))
+                .AddTrigger(trigger =>
+                    trigger
+                        .ForJob(emailJobKey)
+                        .StartNow()
+                        .WithSimpleSchedule(schedule => schedule.WithMisfireHandlingInstructionFireNow()));
         }
     }
 }

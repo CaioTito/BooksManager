@@ -26,6 +26,8 @@ namespace BooksManager.API.Extensions
                 options.WaitForJobsToComplete = true;
             });
             services.ConfigureOptions<EmailBackgroundJobSetup>();
+
+            return services;
         }
     }
 }
