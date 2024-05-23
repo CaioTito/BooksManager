@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BooksManager.Core\BooksManager.Core.csproj" />
+    <ProjectReference Include="..\BooksManager.Infraestructure\BooksManager.Infraestructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Queries\Lendings\" />
+    <Folder Include="Queries\Users\" />
+  </ItemGroup>
+
 </Project>

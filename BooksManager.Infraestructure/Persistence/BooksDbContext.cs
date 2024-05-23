@@ -2,13 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace BooksManager.Infraestructure
+namespace BooksManager.Infraestructure.Persistence
 {
     public class BooksDbContext(DbContextOptions<BooksDbContext> options) : DbContext(options)
     {
         public DbSet<Book> Books { get; set; }
-        public DbSet<Book> Lendings { get; set; }
-        public DbSet<Book> Users { get; set; }
+        public DbSet<Lending> Lendings { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
