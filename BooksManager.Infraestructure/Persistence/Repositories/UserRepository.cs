@@ -1,5 +1,6 @@
 ﻿using BooksManager.Core.Entities;
 using BooksManager.Core.Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace BooksManager.Infraestructure.Persistence.Repositories
 {
@@ -8,6 +9,11 @@ namespace BooksManager.Infraestructure.Persistence.Repositories
         public async Task CreateAsync(User user)
         {
             await context.Users.AddAsync(user);
+        }
+        public async Task<User> GetByIdAsync(Guid id)
+        {
+            return await context.Users
+                .FirstAsync(b => b.Id == id && b.DeletedAt == null);
         }
     }
 }

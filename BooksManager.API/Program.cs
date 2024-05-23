@@ -6,6 +6,10 @@ using BooksManager.Infraestructure.Persistence.Repositories;
 using FluentValidation.AspNetCore;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using BooksManager.API.Extensions;
+using BooksManager.Core.Interfaces.Services;
+using BooksManager.Infraestructure.External_Services;
+using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +29,18 @@ builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<ILendingRepository, LendingRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddTransient<IEmailService, EmailService>();
+
+builder.Services.AddQuartz(options =>
+{
+    options.UseMicrosoftDependencyInjectionJobFactory();
+});
+builder.Services.AddQuartzHostedService(options =>
+{
+    options.WaitForJobsToComplete = true;
+});
+builder.Services.ConfigureOptions<EmailBackgroundJobSetup>();
 
 
 var app = builder.Build();
