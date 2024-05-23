@@ -12,11 +12,6 @@ namespace BooksManager.Application.Validators
                 .NotNull()
                 .WithMessage("BookId is required");
 
-            RuleFor(l => l.UserId)
-                .NotEmpty()
-                .NotNull()
-                .WithMessage("UserId is required");
-
             RuleFor(l => l.ReturnDate)
                 .NotEmpty()
                 .NotNull()

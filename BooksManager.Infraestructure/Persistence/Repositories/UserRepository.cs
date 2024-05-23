@@ -15,5 +15,15 @@ namespace BooksManager.Infraestructure.Persistence.Repositories
             return await context.Users
                 .FirstAsync(b => b.Id == id && b.DeletedAt == null);
         }
+
+        public async Task<User> GetByPasswordAndEmailAsync(string email, string password)
+        {
+            var user = await context.Users.SingleOrDefaultAsync(u => u.Email == email && u.Password == password && u.DeletedAt == null);
+
+            if (user == null)
+                return null;
+
+            return user;
+        }
     }
 }

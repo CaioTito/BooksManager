@@ -1,12 +1,21 @@
 ﻿using BooksManager.Core.Interfaces.Repositories;
+using BooksManager.Core.Interfaces.Services;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace BooksManager.Infraestructure.Persistence
 {
-    public class UnitOfWork(BooksDbContext context, IBookRepository books, ILendingRepository lendings, IUserRepository users) : IUnitOfWork
+    public class UnitOfWork(
+        BooksDbContext context,
+        IAuthService auth,
+        IBookRepository books,
+        IEmailService email,
+        ILendingRepository lendings,
+        IUserRepository users) : IUnitOfWork
     {
         private IDbContextTransaction _transaction;
+        public IAuthService Auth { get; } = auth;
         public IBookRepository Books { get; } = books;
+        public IEmailService Email { get; } = email;
         public ILendingRepository Lendings { get; } = lendings;
         public IUserRepository Users { get; } = users;
 

@@ -6,5 +6,6 @@ namespace BooksManager.Core.Interfaces.Repositories
     {
         Task CreateAsync(User user);
         Task<User> GetByIdAsync(Guid id);
+        Task<User> GetByPasswordAndEmailAsync(string email, string password);
     }
 }

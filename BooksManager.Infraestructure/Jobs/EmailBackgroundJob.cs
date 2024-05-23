@@ -12,7 +12,6 @@ namespace BooksManager.Infraestructure.Jobs
     [DisallowConcurrentExecution]
     public class EmailBackgroundJob(
         ILogger<EmailBackgroundJob> logger,
-        IEmailService emailService,
         IUnitOfWork unitOfWork)
         : IJob
     {
@@ -31,7 +30,7 @@ namespace BooksManager.Infraestructure.Jobs
                     var user = await unitOfWork.Users.GetByIdAsync(lending.UserId);
                     var content = EmailExtensions.EmailTemplate(user.Name, book.Title, lending.ReturnDate.ToShortDateString());
 
-                    emailService.SendEmail(user.Email,
+                    unitOfWork.Email.SendEmail(user.Email,
                         $"Empréstimos próximos ao vencimento - {DateTime.Now.ToString("dd/MM/yyyy")}",
                         content);
                 }

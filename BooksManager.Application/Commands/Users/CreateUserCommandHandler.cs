@@ -8,7 +8,9 @@ namespace BooksManager.Application.Commands.Users
     {
         public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            var user = new User(request.Name, request.Email);
+            var hashPassword = unitOfWork.Auth.GeneratePasswordHash(request.Password);
+            
+            var user = new User(request.Name, request.Email, hashPassword, request.Role);
 
             await unitOfWork.Users.CreateAsync(user);
             await unitOfWork.SaveChangesAsync();

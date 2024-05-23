@@ -16,7 +16,7 @@ namespace BooksManager.Infraestructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Isbn = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     YearOfPublication = table.Column<int>(type: "int", nullable: false),
@@ -35,7 +35,9 @@ namespace BooksManager.Infraestructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -75,6 +77,12 @@ namespace BooksManager.Infraestructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Books_Title",
+                table: "Books",
+                column: "Title",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Lendings_BookId",
                 table: "Lendings",
                 column: "BookId");
@@ -83,6 +91,12 @@ namespace BooksManager.Infraestructure.Migrations
                 name: "IX_Lendings_UserId",
                 table: "Lendings",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
         }
 
         /// <inheritdoc />

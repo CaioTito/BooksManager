@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BooksManager.Infraestructure.Persistence.Configuration
 {
-    public class BookConfiguration : IEntityTypeConfiguration<Book>
+    public class UserConfiguration : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<Book> builder)
+        public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.HasKey(b => b.Id);
+            builder.HasKey(u => u.Id);
 
             builder
-                .HasIndex(u => u.Title)
+                .HasIndex(u => u.Email)
                 .IsUnique();
         }
     }
