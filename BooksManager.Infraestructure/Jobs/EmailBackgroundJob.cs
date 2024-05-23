@@ -31,7 +31,7 @@ namespace BooksManager.Infraestructure.Jobs
                     var user = await unitOfWork.Users.GetByIdAsync(lending.UserId);
                     var content = EmailExtensions.EmailTemplate(user.Name, book.Title, lending.ReturnDate.ToShortDateString());
 
-                    emailService.SendEmail("caio_tito@hotmail.com",
+                    emailService.SendEmail(user.Email,
                         $"Empréstimos próximos ao vencimento - {DateTime.Now.ToString("dd/MM/yyyy")}",
                         content);
                 }
