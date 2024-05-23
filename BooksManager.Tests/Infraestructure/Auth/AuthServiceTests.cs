@@ -29,12 +29,12 @@ namespace BooksManager.Tests.Infraestructure.Auth
         public void GenerateJwtToken_ShouldReturnToken()
         {
             // Arrange
-            string email = "test@example.com";
-            int role = 1; // Assuming role 1 is a valid role
-            Guid id = Guid.NewGuid();
+            var email = "test@example.com";
+            var role = 1;
+            var id = Guid.NewGuid();
 
             // Act
-            string token = _authService.GenerateJwtToken(email, role, id);
+            var token = _authService.GenerateJwtToken(email, role, id);
 
             // Assert
             Assert.NotNull(token);
@@ -47,8 +47,7 @@ namespace BooksManager.Tests.Infraestructure.Auth
             Assert.Equal("testAudience", jwtToken.Audiences.First());
             Assert.Equal(email, jwtToken.Claims.First(c => c.Type == ClaimTypes.Email).Value);
 
-            // Ajuste para corresponder ao nome da enumeração em vez do valor numérico
-            string expectedRoleName = Enum.GetName(typeof(Roles), role);
+            var expectedRoleName = Enum.GetName(typeof(Roles), role);
             Assert.Equal(expectedRoleName, jwtToken.Claims.First(c => c.Type == ClaimTypes.Role).Value);
 
             Assert.Equal(id.ToString(), jwtToken.Claims.First(c => c.Type == "UserId").Value);
@@ -58,26 +57,24 @@ namespace BooksManager.Tests.Infraestructure.Auth
         public void GeneratePasswordHash_ShouldReturnHashedPassword()
         {
             // Arrange
-            string password = "TestPassword123";
+            var password = "TestPassword123";
 
             // Act
-            string hashedPassword = _authService.GeneratePasswordHash(password);
+            var hashedPassword = _authService.GeneratePasswordHash(password);
 
             // Assert
-            using (SHA256 sha256Hash = SHA256.Create())
+            using SHA256 sha256Hash = SHA256.Create();
+            var bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            var builder = new StringBuilder();
+            foreach (var t in bytes)
             {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
-
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-
-                string expectedHash = builder.ToString();
-
-                Assert.Equal(expectedHash, hashedPassword);
+                builder.Append(t.ToString("x2"));
             }
+
+            var expectedHash = builder.ToString();
+
+            Assert.Equal(expectedHash, hashedPassword);
         }
     }
 }
