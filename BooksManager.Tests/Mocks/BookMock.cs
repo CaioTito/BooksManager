@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using BooksManager.Application.Commands.Books;
 using BooksManager.Application.Queries.Books;
+using BooksManager.Application.ViewModels;
 using BooksManager.Core.Entities;
 
 namespace BooksManager.Tests.Mocks
@@ -25,6 +26,10 @@ namespace BooksManager.Tests.Mocks
 
         public static Faker<GetBookByIdQuery> GetBookByIdQueryFaker =>
             new Faker<GetBookByIdQuery>()
-                .RuleFor(x => x.Id, f => f.Random.Guid());
+                .CustomInstantiator(f => (
+                    new GetBookByIdQuery(f.Random.Guid())));
+
+        public static Faker<GetAllBooksQuery> GetAllBookQueryFaker =>
+            new();
     }
 }

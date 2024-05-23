@@ -31,9 +31,7 @@
 
   <ItemGroup>
     <Folder Include="API\" />
-    <Folder Include="Application\Queries\Books\" />
     <Folder Include="Application\Queries\Lendings\" />
-    <Folder Include="Application\Queries\Users\" />
     <Folder Include="Core\" />
     <Folder Include="Infraestructure\" />
   </ItemGroup>
