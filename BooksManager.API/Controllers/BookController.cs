@@ -1,12 +1,10 @@
 ﻿using BooksManager.Application.Commands.Books;
 using BooksManager.Application.Queries.Books;
 using BooksManager.Application.ViewModels;
-using BooksManager.Core.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BooksManager.API.Controllers
 {

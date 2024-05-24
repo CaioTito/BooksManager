@@ -36,5 +36,15 @@ namespace BooksManager.Tests.Mocks
 
         public static Faker<GetAllBooksQuery> GetAllBookQueryFaker =>
             new();
+
+        public static Faker<BookViewModel> BookViewModelFaker =>
+            new Faker<BookViewModel>()
+                .CustomInstantiator(f => (
+                    new BookViewModel(
+                        f.Random.Guid(),
+                        f.Random.Word(),
+                        f.Random.Word(),
+                        f.Random.Word(),
+                        f.Random.Int())));
     }
 }

@@ -2,6 +2,7 @@
 using BooksManager.Application.Commands.Users;
 using BooksManager.Application.Queries.Books;
 using BooksManager.Application.Queries.Users;
+using BooksManager.Application.ViewModels;
 using BooksManager.Core.Entities;
 using BooksManager.Core.Enums;
 
@@ -39,5 +40,14 @@ namespace BooksManager.Tests.Mocks
             new Faker<DeleteUserCommand>()
                 .CustomInstantiator(f => (
                     new DeleteUserCommand(f.Random.Guid())));
+
+        public static Faker<UserViewModel> UserViewModelFaker =>
+            new Faker<UserViewModel>()
+                .CustomInstantiator(f => (
+                    new UserViewModel(
+                        f.Random.Guid(),
+                        f.Person.FirstName,
+                        f.Person.Email,
+                        f.PickRandom<Roles>())));
     }
 }

@@ -15,7 +15,7 @@ namespace BooksManager.API.Controllers
         /// <summary>
         /// Create a new lending
         /// </summary>
-        /// <param name="command">Lening data</param>
+        /// <param name="command">Lending data</param>
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Guid))]
         [Authorize(Roles = "Customer")]
         [HttpPost]
