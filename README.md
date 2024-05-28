@@ -31,3 +31,13 @@ A API conta com as seguintes **funcionalidades**:
 ![image](https://github.com/CaioTito/BooksManager/assets/47333681/a61a7e6f-f46e-4f7c-9d27-b3721bf3925f)
 ![image](https://github.com/CaioTito/BooksManager/assets/47333681/8a32044e-2b21-4bb4-9135-59b1ea0b6480)
 
+## Como executar o projeto
+Para executar o projeto, siga as seguintes etapas:
+
+1. Clone este repositório em sua máquina local usando o comando git clone `https://github.com/CaioTito/BooksManager.git`
+2. Abra o projeto no Visual Studio ou em outra IDE de sua preferência.
+3. Configure a string de conexão do banco de dados no arquivo `appsettings.Development.json`.
+4. No Console do Gerenciador de Pacotes, execute o comando `Update-Database` para criar o banco de dados e suas tabelas.
+5. Utilize um cliente SQL de sua preferencia e faça a conexão ao seu banco de dados local.
+6. Compile o projeto e execute a aplicação.
+7. Ao executar o  Swagger se abrirá automaticamente para que você possa testar os endpoints da API.
