@@ -14,7 +14,7 @@ A API conta com as seguintes **funcionalidades**:
   
   Criado utilizando a biblioteca Quartz, roda um job em background todo dia as 08:00 e quando a aplicação é iniciada, onde é feita uma consulta e retornado todos empréstimos do usuario que estejam a menos de 03 dias do vencimento e são encaminhados para o e-mail do usuario, para notificação e atualização dos empréstimos. 
   
-**Cobertura de 90% com testes unitários**
+**Cobertura de 80% com testes unitários**
 
   Realizado a criação de projeto de testes unitários, utilizando xUnit, Moq e Bogus.
 
@@ -41,3 +41,8 @@ Para executar o projeto, siga as seguintes etapas:
 5. Utilize um cliente SQL de sua preferencia e faça a conexão ao seu banco de dados local.
 6. Compile o projeto e execute a aplicação.
 7. Ao executar o  Swagger se abrirá automaticamente para que você possa testar os endpoints da API.
+
+## Testes unitários
+
+![image](https://github.com/CaioTito/BooksManager/assets/47333681/08f6a5fd-c958-4b37-8710-e2615360a2fb)
+
