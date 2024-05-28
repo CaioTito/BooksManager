@@ -11,6 +11,6 @@ namespace BooksManager.Core.Entities
         public string Email { get; private set; } = email;
         public string Password { get; private set; } = password;
         public Roles Role { get; private set; } = role;
-        public IEnumerable<Lending> Lendings { get; private set; } = [];
+        public IEnumerable<Lending> Lendings { get; private set; }
     }
 }

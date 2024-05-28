@@ -11,6 +11,6 @@ namespace BooksManager.Core.Entities
         public string Author { get; private set; } = author;
         public string Isbn { get; private set; } = isbn;
         public int YearOfPublication { get; private set; } = yearOfPublication;
-        public IEnumerable<Lending> Lendings { get; private set; } = [];
+        public IEnumerable<Lending> Lendings { get; private set; }
     }
 }

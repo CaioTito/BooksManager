@@ -9,7 +9,7 @@
         public Guid UserId { get; private set; } = userId;
         public Guid BookId { get; private set; } = bookId;
         public DateTime ReturnDate { get; private set; } = returnDate;
-        public User Client { get; private set; } = new();
-        public Book Book { get; private set; } = new();
+        public User Client { get; private set; }
+        public Book Book { get; private set; }
     }
 }

@@ -15,9 +15,6 @@ namespace BooksManager.Infraestructure.Persistence.Repositories
         {
             var products = context.Lendings.Where(p => EF.Functions.DateDiffDay(DateTime.Now, p.ReturnDate) < 3 && p.DeletedAt == null).ToList();
 
-            if (products == null)
-                return null;
-
             return products;
         }
 

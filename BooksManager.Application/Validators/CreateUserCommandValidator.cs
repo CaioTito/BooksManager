@@ -23,7 +23,7 @@ namespace BooksManager.Application.Validators
                 .WithMessage("Name is required");
 
             RuleFor(p => p.Role)
-                .Must(role => role == Roles.Administrator || role == Roles.Customer)
+                .IsInEnum()
                 .WithMessage("Role must be either 1 (Admin) or 2 (Customer)");
 
         }
