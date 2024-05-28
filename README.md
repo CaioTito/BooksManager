@@ -8,7 +8,7 @@ A API conta com as seguintes **funcionalidades**:
 
 **Gestão dos livros**
   
-  Realizado a criação de endpoints utilizando padrão CQRS, de maneira a qual o Backoffice possa criar, editar, consultar e deletar livros, além de criar usuário, realizar logig e criação de empréstimos.
+  Realizado a criação de endpoints utilizando padrão CQRS, de maneira a qual o Backoffice possa criar, editar, consultar e deletar livros, além de criar usuário, realizar login e criação de empréstimos.
   
 **Disparo de e-mail diário para notificar os usuarios a respeito dos empréstimos de livros com vencimento próximo (3 dias).**
   
