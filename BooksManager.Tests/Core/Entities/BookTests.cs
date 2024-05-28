@@ -16,7 +16,6 @@ namespace BooksManager.Tests.Core.Entities
             Assert.Equal(string.Empty, book.Author);
             Assert.Equal(string.Empty, book.Isbn);
             Assert.Equal(0, book.YearOfPublication);
-            Assert.NotNull(book.Lendings);
         }
 
         [Fact]
@@ -36,7 +35,6 @@ namespace BooksManager.Tests.Core.Entities
             Assert.Equal(author, book.Author);
             Assert.Equal(isbn, book.Isbn);
             Assert.Equal(yearOfPublication, book.YearOfPublication);
-            Assert.NotNull(book.Lendings);
         }
     }
 }

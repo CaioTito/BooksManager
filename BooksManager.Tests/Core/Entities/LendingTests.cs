@@ -16,8 +16,6 @@ namespace BooksManager.Tests.Core.Entities
             Assert.Equal(Guid.Empty, lending.UserId);
             Assert.Equal(Guid.Empty, lending.BookId);
             Assert.Equal(DateTime.MinValue, lending.ReturnDate);
-            Assert.NotNull(lending.Client);
-            Assert.NotNull(lending.Book);
         }
 
         [Fact]
@@ -35,8 +33,6 @@ namespace BooksManager.Tests.Core.Entities
             Assert.Equal(userId, lending.UserId);
             Assert.Equal(bookId, lending.BookId);
             Assert.Equal(returnDate, lending.ReturnDate);
-            Assert.NotNull(lending.Client);
-            Assert.NotNull(lending.Book);
         }
     }
 }

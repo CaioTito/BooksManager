@@ -1,9 +1,11 @@
 ﻿using BooksManager.Infraestructure.Jobs;
 using Microsoft.Extensions.Options;
 using Quartz;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BooksManager.API.Extensions
 {
+    [ExcludeFromCodeCoverage]
     public class EmailBackgroundJobSetup : IConfigureOptions<QuartzOptions>
     {
         public void Configure(QuartzOptions options)

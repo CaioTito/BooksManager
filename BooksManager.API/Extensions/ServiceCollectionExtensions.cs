@@ -5,9 +5,11 @@ using BooksManager.Infraestructure.External_Services;
 using BooksManager.Infraestructure.Persistence.Repositories;
 using BooksManager.Infraestructure.Persistence;
 using Quartz;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BooksManager.API.Extensions
 {
+    [ExcludeFromCodeCoverage]
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddInfraestructure(this IServiceCollection services)

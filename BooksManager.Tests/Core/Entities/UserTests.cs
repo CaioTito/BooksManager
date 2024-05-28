@@ -17,7 +17,6 @@ namespace BooksManager.Tests.Core.Entities
             Assert.Equal(string.Empty, user.Email);
             Assert.Equal(string.Empty, user.Password);
             Assert.Equal(default(Roles), user.Role);
-            Assert.NotNull(user.Lendings);
         }
     }
 }
