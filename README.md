@@ -28,8 +28,8 @@ A API conta com as seguintes **funcionalidades**:
   
 # Endpoints
 
-![image](https://github.com/CaioTito/BooksManager/assets/47333681/a61a7e6f-f46e-4f7c-9d27-b3721bf3925f)
-![image](https://github.com/CaioTito/BooksManager/assets/47333681/8a32044e-2b21-4bb4-9135-59b1ea0b6480)
+![image](https://github.com/CaioTito/BooksManager/assets/47333681/cc886ab8-8e8a-455a-b68d-d98ee1ec1ed8)
+
 
 ## Como executar o projeto
 Para executar o projeto, siga as seguintes etapas:
